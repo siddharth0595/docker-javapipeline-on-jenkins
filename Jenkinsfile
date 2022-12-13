@@ -5,7 +5,7 @@ pipeline {
 	stages {
 		stage("SCM") {
 			steps {
-			        git https://github.com/siddharth0595/docker-javapileline-on-jenkins.git
+			        git 'https://github.com/siddharth0595/docker-javapileline-on-jenkins.git'
 				}
 			}
 
