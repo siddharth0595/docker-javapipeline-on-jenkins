@@ -1,11 +1,11 @@
 pipeline {
 	agent {	
-		label 'pipeline-1'
+		label 'jenkins-slave2'
 		}
 	stages {
 		stage("SCM") {
 			steps {
-				git 'https://github.com/wssrronak/java-docker-app.git'
+			        git https://github.com/siddharth0595/docker-javapileline-on-jenkins.git
 				}
 			}
 
