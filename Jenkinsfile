@@ -1,6 +1,6 @@
 pipeline {
 	agent {	
-		label 'jenkins-slave1'
+		label 'jenkins-Slave1'
 		}
 	stages {
 		stage("SCM") {
