@@ -5,13 +5,6 @@ pipeline {
 	stages {
 		stage("SCM") {
 			steps {
-			        pipeline {
-	agent {	
-		label 'Slave-node1'
-		}
-	stages {
-		stage("SCM") {
-			steps {
 			        git branch: 'main', url: 'https://github.com/siddharth0595/docker-javapileline-on-jenkins.git'
 				}
 			}
