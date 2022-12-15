@@ -34,7 +34,7 @@ pipeline {
 		}
 		stage("QAT Testing") {
 			steps {
-				sh 'sudo docker run -dit -p 8081:8080 --name web11 siddharth121/pipeline-java:$BUILD_TAG'
+				sh 'sudo docker run -dit -p 8081:8080 --name web12 siddharth121/pipeline-java:$BUILD_TAG'
 				}
 			}
 	}
