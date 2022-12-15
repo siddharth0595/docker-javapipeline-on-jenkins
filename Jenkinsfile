@@ -29,13 +29,29 @@ pipeline {
 				sh 'sudo docker login -u siddharth121 -p ${docker_hub_password_var}'
 				sh 'sudo docker push siddharth121/pipeline-java:$BUILD_TAG'
 				}
-			}	
-
+			}
 		}
+
 		stage("QAT Testing") {
 			steps {
 				sh 'sudo docker run -dit -p 8081:8080 --name web12 siddharth121/pipeline-java:$BUILD_TAG'
 				}
 			}
-	}
+	 	stage("testing website") {
+			steps {
+				retry(5) {
+				sh "curl --silent http://35.154.193.35:49153/java-web-app/ | grep -i india"
+				}
+	   		}
+		}
+
+		stage("Approval status") {
+			steps {
+				script {  
+                		Boolean userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
+                		echo 'userInput: ' + userInput
+				}
+	 		}
+		}
+    	}
 }
